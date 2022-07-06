@@ -1,0 +1,277 @@
+{% extends "layouts/base.html" %} {% block title %} DashBoard {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}<link type="text/css" href="/static/assets/css/custom.css" rel="stylesheet" />{% endblock stylesheets %} {% block content %}
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
+  <div class="d-block mb-4 mb-md-0">
+    <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
+      <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+        <li class="breadcrumb-item">
+          <a href="/DashBoard.html">
+            <svg class="icon icon-xxs" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+              ></path>
+            </svg>
+          </a>
+        </li>
+        <li class="breadcrumb-item"><a href="/DashBoard.html">首頁</a></li>
+        <li class="breadcrumb-item active" aria-current="page">基本設定</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12 col-xl-5">
+    <div class="card card-body border-0 shadow mb-4">
+      <div class="row myRow">
+        {% for item in Data %}
+        <div class="col-12 col-sm-12 col-xl-12 mb-3 myCol showDashboard">
+          <div class="card border-0 shadow">
+            <div class="card-body" style="padding: 0.5rem 1rem">
+              <div class="row d-block d-flex align-items-center">
+                <div class="col-4 col-sm-4 col-xl-4">
+                  <div class="icon-shape rounded bgcolor-gold">
+                    <h3 class="fw-extrabold mb-1 px-2 Item_name">Item_name</h3>
+                  </div>
+                </div>
+                <div class="col-8 col-sm-8 col-xl-8">
+                  <div class="">
+                    <h3 class="fw-extrabold mb-2 Value_af">Value_af</h3>
+                  </div>
+                  <div class="d-flex align-items-center text-gray-500">
+                    <span class="fs-7 Date_Time">Date_Time</span>
+                    <svg class="icon icon-xxs text-gray-500 ms-2 me-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zM4.332 8.027a6.012 6.012 0 011.912-2.706C6.512 5.73 6.974 6 7.5 6A1.5 1.5 0 019 7.5V8a2 2 0 004 0 2 2 0 011.523-1.943A5.977 5.977 0 0116 10c0 .34-.028.675-.083 1H15a2 2 0 00-2 2v2.197A5.973 5.973 0 0110 16v-2a2 2 0 00-2-2 2 2 0 01-2-2 2 2 0 00-1.668-1.973z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                    <span class="fs-7">更新</span>
+                    <div class="small d-flex mt-1">
+                      <button type="button" class="buttom-outline revise" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            fill-rule="evenodd"
+                            d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
+                            clip-rule="evenodd"
+                          ></path>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        <div>
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">校正資料</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <div class="row">
+                    <div class="col-12 col-sm-12 col-xl-12 d-flex flex-wrap">
+                      <div class="card card-body border-3 shadow mb-4">
+                        <div class="d-lg-flex mb-0">
+                          <div class="fs-3 me-auto">
+                            <h3 id="Item_name">Item_name</h3>
+                          </div>
+                          <div class="d-flex flex-lg-column flex-xl-row align-items-end fs-7 ms-2">
+                            <div class="mx-1">
+                              <span></span>
+                              <span id="a">a</span>
+                            </div>
+                            <div class="mx-1">
+                              <span></span>
+                              <span id="b">b</span>
+                            </div>
+                            <div class="mx-1">
+                              <span></span>
+                              <span id="offset">offset</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div role="separator" class="dropdown-divider mb-2 mt-2"></div>
+
+                        <div class="row mb-2">
+                          <div class="col-5 px-1 py-1 text-center fw-bold">
+                            <div class="fs-7 text-gray-500">Before</div>
+                            <div class="fs-3" id="Value_be">Value_be</div>
+                          </div>
+                          <div class="col-2 icon ps-0 mt-2">
+                            <svg width="60" height="60" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+                              <path fill="#fff" d="M64 14A50 50 0 1 0 64 114A50 50 0 1 0 64 14Z"></path>
+                              <path
+                                fill="#444b54"
+                                d="M64,117c-29.2,0-53-23.8-53-53s23.8-53,53-53s53,23.8,53,53S93.2,117,64,117z M64,17c-25.9,0-47,21.1-47,47s21.1,47,47,47s47-21.1,47-47S89.9,17,64,17z"
+                              ></path>
+                              <path
+                                fill="#444b54"
+                                d="M80 67H55c-1.7 0-3-1.3-3-3s1.3-3 3-3h25c1.7 0 3 1.3 3 3S81.7 67 80 67zM45 67c-.2 0-.4 0-.6-.1-.2 0-.4-.1-.6-.2-.2-.1-.3-.2-.5-.3-.2-.1-.3-.2-.5-.4C42.3 65.6 42 64.8 42 64s.3-1.6.9-2.1c.1-.1.3-.3.4-.4.2-.1.3-.2.5-.3.2-.1.4-.1.6-.2 1-.2 2 .1 2.7.8.6.6.9 1.3.9 2.1s-.3 1.6-.9 2.1c-.1.1-.3.3-.5.4-.2.1-.3.2-.5.3-.2.1-.4.1-.6.2C45.4 67 45.2 67 45 67z"
+                              ></path>
+                              <path
+                                fill="#444b54"
+                                d="M70,77c-0.8,0-1.5-0.3-2.1-0.9c-1.2-1.2-1.2-3.1,0-4.2l7.9-7.9l-7.9-7.9c-1.2-1.2-1.2-3.1,0-4.2c1.2-1.2,3.1-1.2,4.2,0l10,10c1.2,1.2,1.2,3.1,0,4.2l-10,10C71.5,76.7,70.8,77,70,77z"
+                              ></path></svg
+                            ><path fill="#fff" d="M64 14A50 50 0 1 0 64 114A50 50 0 1 0 64 14Z"></path
+                            ><path
+                              fill="#444b54"
+                              d="M64,117c-29.2,0-53-23.8-53-53s23.8-53,53-53s53,23.8,53,53S93.2,117,64,117z M64,17c-25.9,0-47,21.1-47,47s21.1,47,47,47s47-21.1,47-47S89.9,17,64,17z"
+                            ></path
+                            ><path
+                              fill="#444b54"
+                              d="M80 67H55c-1.7 0-3-1.3-3-3s1.3-3 3-3h25c1.7 0 3 1.3 3 3S81.7 67 80 67zM45 67c-.2 0-.4 0-.6-.1-.2 0-.4-.1-.6-.2-.2-.1-.3-.2-.5-.3-.2-.1-.3-.2-.5-.4C42.3 65.6 42 64.8 42 64s.3-1.6.9-2.1c.1-.1.3-.3.4-.4.2-.1.3-.2.5-.3.2-.1.4-.1.6-.2 1-.2 2 .1 2.7.8.6.6.9 1.3.9 2.1s-.3 1.6-.9 2.1c-.1.1-.3.3-.5.4-.2.1-.3.2-.5.3-.2.1-.4.1-.6.2C45.4 67 45.2 67 45 67z"
+                            ></path
+                            ><path
+                              fill="#444b54"
+                              d="M70,77c-0.8,0-1.5-0.3-2.1-0.9c-1.2-1.2-1.2-3.1,0-4.2l7.9-7.9l-7.9-7.9c-1.2-1.2-1.2-3.1,0-4.2c1.2-1.2,3.1-1.2,4.2,0l10,10c1.2,1.2,1.2,3.1,0,4.2l-10,10C71.5,76.7,70.8,77,70,77z"
+                            ></path>
+                          </div>
+                          <div class="col-5 px-1 py-1 text-center fw-bold">
+                            <div class="fs-7 text-gray-500">After</div>
+                            <div class="fs-3" id="Value_af">Value_af</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="item_check">關閉</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-xl-7">
+    <div class="row">
+      <div class="col-12">
+        <div class="card card-body border-0 shadow mb-4">
+          <h2 class="h5 mb-4">Google map</h2>
+          <div>
+            <div id="map"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+<link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@4/bulma.css" rel="stylesheet" />
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+
+<script>
+  var stid = document.getElementById("STID");
+  var pjid = document.getElementById("pjID");
+  var address = document.getElementById("Address");
+  var Lng = document.getElementById("Lng");
+  var Lat = document.getElementById("Lat");
+  var area = document.getElementById("Area");
+  var ip = document.getElementById("sendip");
+  var port = document.getElementById("sendport");
+  var submitbtn = document.getElementById("submitbtn");
+  var contentbtn = document.getElementById("connectbtn");
+
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top",
+    showConfirmButton: false,
+    timer: 3000,
+    onOpen: (toast) => {
+      toast.addEventListener("mouseenter", Swal.stopTimer);
+      toast.addEventListener("mouseleave", Swal.resumeTimer);
+    },
+  });
+</script>
+<script>
+  function initMap() {
+    axios
+      .get("./GetLngLat/")
+      .then(function (resp) {
+        var corrd = { lat: resp.data["lat"], lng: resp.data["lng"] };
+        var map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 18,
+          center: corrd,
+        });
+        var marker = new google.maps.Marker({
+          position: corrd,
+          map: map,
+          title: "感測器位置",
+        });
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
+  }
+  var funs = [
+    function (showDashboard, data) {
+      //showDashboard
+      var Value_af_el = showDashboard.querySelector(".Value_af");
+      var Value_af = parseFloat(data["Value_af"]);
+      Value_af_el.classList[Value_af >= 52.3 ? "add" : "remove"]("changecolor");
+      console.log(Value_af);
+    },
+  ];
+  function checkinfo() {
+    axios
+      .get("./GetDashboard/")
+      .then(function (resp) {
+        var showDashboard = document.querySelectorAll(".showDashboard");
+        var html_list = ["Date_Time", "Item_name", "Value_af"];
+        var id_list = ["Item_name", "a", "b", "offset", "Value_be", "Value_af"];
+
+        showDashboard.forEach(function (showDashboard, index) {
+          var fun = funs[index];
+
+          html_list.forEach(function (list, count) {
+            var el = showDashboard.querySelector("." + list);
+            el.textContent = resp.data.Data[index][list];
+          });
+          fun && fun(showDashboard, resp.data.Data[index]);
+          var revisebtn = showDashboard.querySelector(".revise");
+          revisebtn.addEventListener("click", function () {
+            id_list.forEach(function (list) {
+              var el = document.getElementById(list);
+              el.textContent = resp.data.Data[index][list];
+            });
+          });
+        });
+      })
+      .catch(function (err) {
+        Toast.fire({
+          icon: "error",
+          title: "讀取資料失敗！",
+        });
+        console.log(err);
+      });
+  }
+  function loop_check() {
+    checkinfo();
+    setTimeout("loop_check()", 2000);
+  }
+
+  loop_check();
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjIk7_LowrKJYnmDOyVtlWqGyf496g58U&callback=initMap"></script>
+
+{% endblock javascripts %}

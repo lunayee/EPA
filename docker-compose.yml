@@ -1,0 +1,44 @@
+version: "3"
+services:
+  db:
+    image: mysql:5.7
+    volumes:
+      - "./mysql:/var/lib/mysql"
+      - ./schema/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./schema/sql:/docker-entrypoint-initdb.d
+    ports:
+      - "3306:3306"
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456789
+      - MYSQL_DATABASE=config
+    command: >
+          bash -c "chmod 644 /etc/mysql/conf.d/*.cnf && /entrypoint.sh mysqld"
+    networks:
+      ipconfig:
+        ipv4_address: 172.21.0.3
+  app:
+    restart: always
+    build: .
+    command: bash -c "python3 manage.py migrate && python3 manage.py runserver 0.0.0.0:4000"
+    volumes:
+      - .:/code
+    ports:
+      - "4000:4000"
+    depends_on:
+      - db
+    links:
+      - db
+    networks:
+      ipconfig:
+        ipv4_address: 172.21.0.4
+
+networks:
+  ipconfig:
+    driver: bridge
+    ipam:
+      config:
+       - subnet: 172.21.0.0/16
+         gateway: 172.21.0.1
+  
+
