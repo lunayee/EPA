@@ -242,30 +242,7 @@
     align-items:center;
     
 }
-.bg{
-    background-image: url(/static/assets/img/pages/googlemap.jpg);
-    background-size: cover;
-    background-position: center;
-    width: 100%;
-    /* height: calc(100vh - 89px); */
-    background-repeat: no-repeat;
-}
-.ugdash{
-    
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    /* background-color: #fff9f97d; */
-    background-clip: border-box;
-    /* border: 0.0625rem solid rgba(17, 24, 39, 0.125);
-    border-radius: 0.5rem; */
-    
-}
-.ugbody{
-    flex: 1 1 auto;
-}
+
 .changecolor{
     color: red;
 }

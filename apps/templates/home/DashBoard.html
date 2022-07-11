@@ -20,7 +20,7 @@
           </a>
         </li>
         <li class="breadcrumb-item"><a href="/DashBoard.html">首頁</a></li>
-        <li class="breadcrumb-item active" aria-current="page">基本設定</li>
+        <li class="breadcrumb-item active" aria-current="page">DashBoard</li>
       </ol>
     </nav>
   </div>
@@ -162,11 +162,15 @@
     <div class="row">
       <div class="col-12">
         <div class="card card-body border-0 shadow mb-4">
-          <h2 class="h5 mb-4">Google map</h2>
+          <div class="d-flex justify-content-between align-items-center">
+            <div><h2 class="h5">Google map</h2></div>
+            <div><img src="/static/assets/img/brand/logo_com.png" width="250" heigh="50" alt="嘉義市政府環境保護局"></div>
+          </div>
           <div>
             <div id="map"></div>
           </div>
         </div>
+        
       </div>
     </div>
   </div>
@@ -228,7 +232,7 @@
       //showDashboard
       var Value_af_el = showDashboard.querySelector(".Value_af");
       var Value_af = parseFloat(data["Value_af"]);
-      Value_af_el.classList[Value_af >= 52.3 ? "add" : "remove"]("changecolor");
+      Value_af_el.classList[Value_af >= 76 ? "add" : "remove"]("changecolor");
       console.log(Value_af);
     },
   ];
