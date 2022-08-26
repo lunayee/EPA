@@ -193,7 +193,7 @@ CREATE TABLE `LABEL` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Label` varchar(10) DEFAULT NULL,
   `Name` varchar(10) DEFAULT NULL,
-  `IsShow` varchar(5) DEFAULT 'True',
+  `IsShow` varchar(6) DEFAULT 'True',
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4;
 -- 插入資料
